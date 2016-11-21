@@ -1,0 +1,5 @@
+$screen_content
+<script>
+var preventSubmit = false;
+var root="$!{request.getContextPath()}";
+</script>

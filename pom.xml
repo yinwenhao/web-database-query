@@ -1,0 +1,307 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.dhf.tools</groupId>
+	<artifactId>web-database-query</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1</version>
+	<name>web-database-query</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<!-- 文件拷贝时的编码 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<!-- 编译时的编码 -->
+		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+		<env>dev</env>
+	</properties>
+	<!-- remote maven repository -->
+	<repositories>
+		<repository>
+			<id>releases</id>
+			<name>DHF Central Code Repository</name>
+			<url>http://10.128.8.31:8081/nexus/content/groups/public/</url>
+		</repository>
+		<repository>
+			<id>snapshots</id>
+			<name>DHF snapshots Code Repository</name>
+			<url>http://10.128.8.31:8081/nexus/content/groups/public-snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<url>http://10.128.8.31:8081/nexus/content/repositories/com.dhf.repository/</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Internal Snapshots</name>
+			<url>http://10.128.8.31:8081/nexus/content/repositories/com.dhf.repositories.snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<!-- remote maven repository end -->
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.2.1</version>
+		</dependency>
+
+		<!-- Web View Dependencies velocity -->
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity-tools</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<!-- Web View Dependencies velocity end -->
+
+		<dependency>
+			<groupId>com.github.jsqlparser</groupId>
+			<artifactId>jsqlparser</artifactId>
+			<version>0.9.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>xml-apis</groupId>
+			<artifactId>xml-apis</artifactId>
+			<version>2.0.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>proxool</groupId>
+			<artifactId>proxool</artifactId>
+			<version>0.8.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.35</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.5.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.5.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.5.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.0.28.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>4.1.6.RELEASE</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-hibernate3</artifactId> 
+			<version>2.0.8</version> </dependency> <dependency> <groupId>org.hibernate</groupId> 
+			<artifactId>hibernate</artifactId> <version>3.2.5.ga</version> </dependency> -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>4.1.6.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>4.1.6.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>4.1.6.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>4.1.6.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>4.1.6.RELEASE</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.12</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.12</version>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.7.12</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.3.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-spring-plugin</artifactId>
+			<version>2.3.24</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+			<version>2.3.24</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-convention-plugin</artifactId>
+			<version>2.3.24</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.10</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>web-database-query</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/conf/${env}</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<attach>true</attach>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- When using xml-less approach, you need to disable Maven's warning 
+				about missing web.xml -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+
+			<!-- Jetty 4 test -->
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>8.1.16.v20140903</version>
+				<configuration>
+					<webApp>
+						<contextPath>/web-database-query</contextPath>
+					</webApp>
+					<connectors>
+						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+							<port>8081</port>
+						</connector>
+					</connectors>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+</project>

@@ -1,0 +1,19 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="#resources()/lib/js/jquery.js"></script>
+<script src="#resources()/lib/js/moment.js"></script>
+<script src="#resources()/modules/guijs/common/ServerNow.js"></script>
+<script src="#resources()/lib/js/seajs.js"></script>
+<script src="#resources()/lib/js/seajs-css.js"></script>
+<script src="#resources()/modules/configs/seajs-config.js"></script>
+<script src="#resources()/lib/js/headroom.min.js"></script>
+<link href="#resources()/lib/style/animate.css" rel="stylesheet">
+
+<!-- bootstrap -->
+<link href="#resources()/lib/bootstrap3/css/bootstrap.min.css" rel="stylesheet">
+<script src="#resources()/lib/bootstrap3/js/bootstrap.min.js"></script>
+
+<link href="#resources()/lib/style/combiner.css" rel="stylesheet">
+<link href="#resources()/lib/style/style.css" rel="stylesheet">

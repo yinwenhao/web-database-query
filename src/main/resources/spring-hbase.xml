@@ -1,0 +1,43 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+      http://www.springframework.org/schema/jdbc
+      http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<bean id="hbaseDataSource" class="com.dhf.hbase.core.connection.MutliConnectionDataSource"
+		init-method="startup" destroy-method="shutdown">
+		Connection Info
+		<property name="rpcTimeout" value="5000" />
+		<property name="maxThreads" value="10" />
+		<property name="minThreads" value="5" />
+		<property name="retries" value="3" />
+		<property name="pause" value="2000" />
+		<property name="connCnt" value="5" />
+		<property name="zkQuorum"
+			value="${hbase.zookeeper.addr}" />
+	</bean>
+
+	<bean id="hbaseIDTransformFactory" class="com.dhf.hbase.core.id.HBaseIDTransformFactory"
+		init-method="startup" destroy-method="shutdown">
+		<property name="defResource" value="classpath:hashFunction.xml" />
+	</bean>
+
+	<bean id="hbaseDaoTemplate" class="com.dhf.hbase.core.template.DefaultHBaseDaoTemplate"
+		init-method="startup" destroy-method="shutdown">
+		<property name="longQuery" value="1"></property>
+		<property name="ds" ref="hbaseDataSource" />
+		<property name="idFactory" ref="hbaseIDTransformFactory" />
+	</bean>
+
+</beans> -->

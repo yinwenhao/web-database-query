@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 这里的namespace名字必须为执行该sql的dao地址&nbsp; -->
+<mapper namespace="com.dhf.tools.dao.mapper.LogMapper">
+
+	<insert id="insertLog" parameterType="com.dhf.tools.dao.entity.Log">
+		insert into t_query_log (user_name, query_statement,query_time,query_cost,state,error_message,database_id) 
+		values(#{userName}, #{queryStatement}, #{queryTime}, #{queryCost},#{state},#{errorMessage},#{databaseId})
+	</insert>
+	<select id="queryLog" parameterType="map" resultType="com.dhf.tools.dao.entity.Log">  
+       
+		SELECT user_name as userName, query_statement as queryStatement,query_time as queryTime,query_cost as queryCost,state as state,error_message as errorMessage,database_id as databaseId FROM t_query_log
+		where 1=1
+		<if test="userName != ''">  and user_name=#{userName}</if>
+		<if test="startDate != ''"> <![CDATA[ and query_time >= #{startDate} ]]> </if>
+ 		<if test="endDate != ''"> <![CDATA[ and  query_time <= #{endDate} ]]> </if>
+			order by  query_time desc    
+        
+	</select>
+</mapper>

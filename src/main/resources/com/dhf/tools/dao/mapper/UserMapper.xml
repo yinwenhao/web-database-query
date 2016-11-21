@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 这里的namespace名字必须为执行该sql的dao地址&nbsp; -->
+<mapper namespace="com.dhf.tools.dao.mapper.UserMapper">
+
+	<select id="getUserByAccount" parameterType="String"
+		resultType="com.dhf.tools.dao.entity.User">
+		<![CDATA[ 
+			SELECT * FROM t_user WHERE account = #{account}
+        ]]>
+	</select>
+
+	<select id="getUserList" resultType="com.dhf.tools.dao.entity.User">  
+        <![CDATA[ 
+			SELECT * FROM t_user
+        ]]>
+	</select>
+
+
+	<!-- 新增用户 -->
+	<insert id="insertUser" parameterType="com.dhf.tools.dao.entity.User">
+		insert into t_user (account, password) values(#{account}, #{password})
+	</insert>
+	<update id="updatePermission" parameterType="com.dhf.tools.dao.entity.User">
+		update  t_user set permission= #{permission} where account=#{account}
+	</update>
+	<delete id="deleteUser" parameterType="String">
+		delete from t_user where account=#{account}
+	</delete>
+</mapper>

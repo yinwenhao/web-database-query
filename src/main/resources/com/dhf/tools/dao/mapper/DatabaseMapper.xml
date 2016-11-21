@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 这里的namespace名字必须为执行该sql的dao地址&nbsp; -->
+<mapper namespace="com.dhf.tools.dao.mapper.DatabaseMapper">
+
+
+	<select id="getDatabaseList" resultType="com.dhf.tools.dao.entity.Database">  
+        <![CDATA[ 
+			SELECT * FROM t_database
+        ]]>
+	</select>
+	<select id="getDatabaseById" parameterType="int" resultType="com.dhf.tools.dao.entity.Database">  
+        <![CDATA[ 
+			SELECT * FROM t_database where id=#{id}
+        ]]>
+	</select>
+	<select id="getDatabaseSecretColumnList" resultType="com.dhf.tools.dao.entity.DatabaseSecretColumn">  
+        <![CDATA[ 
+			SELECT * FROM t_secret_column
+        ]]>
+	</select>
+
+	<select id="getConfigList" resultType="com.dhf.tools.dao.entity.DatabaseConfig">  
+        <![CDATA[ 
+			SELECT * FROM t_config
+        ]]>
+	</select>
+	<select id="getNextId" resultType="int">  
+        <![CDATA[ 
+			SELECT MAX(id)+1 FROM t_database
+        ]]>
+	</select>
+	<!-- 新增数据库-->
+	<insert id="insertDatabase" parameterType="com.dhf.tools.dao.entity.Database">
+		insert into t_database (id, url, username, password, driver, name) values(#{id}, #{url}, #{username},#{password}, #{driver},#{name})
+	</insert>
+	<update id="updateDatabase" parameterType="com.dhf.tools.dao.entity.Database">
+		update  t_database set url= #{url}, username=#{username}, password= #{password},driver= #{driver},name= #{name} 
+		where id=#{id}
+	</update>
+	<delete id="deleteDatabase" parameterType="int">
+		delete from t_database where id=#{id}
+	</delete>
+</mapper>

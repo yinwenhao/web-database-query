@@ -1,0 +1,10 @@
+## 错误提示
+#macro( ctx )/polaris#end
+
+#macro( resources )#ctx()/resources#end
+
+#macro( control )/WEB-INF/template/control#end
+
+#macro( layout )/WEB-INF/template/layout#end
+
+#macro( screen )/WEB-INF/template/screen#end

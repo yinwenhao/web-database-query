@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<bean type="org.apache.struts2.convention.ActionNameBuilder" name="defaultConvention"
+		class="org.apache.struts2.convention.DefaultActionNameBuilder" />
+	<!-- constant name="struts.enable.DynamicMethodInvocation" value="true" 
+		/ -->
+
+	<!-- 是否使用struts的开发模式。开发模式会有更多的调试信息。默认值为false(生产环境下使用),开发阶段最好打开 -->
+	<constant name="struts.devMode" value="false" />
+	<!-- 语言配置 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<!-- Spring插件配置 -->
+	<constant name="struts.objectFactory"
+		value="org.apache.struts2.spring.StrutsSpringObjectFactory" />
+	<constant name="struts.objectFactory.spring.autoWire" value="name" />
+	<constant name="struts.objectFactory.spring.useClassCache"
+		value="true"></constant>
+	<!-- 自动重载 -->
+	<constant name="struts.convention.classes.reload" value="false" />
+	<!-- Action命名风格 -->
+	<constant name="struts.convention.actionNameBuilder" value="defaultConvention" />
+	<!-- 主题风格 -->
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<constant name="struts.convention.action.includeJars" value=".*web-database-query.jar.*" />
+
+	<package name="default" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="exception"
+				class="com.dhf.tools.interceptor.ExceptionInterceptor" />
+			<interceptor name="auth"
+				class="com.dhf.tools.interceptor.AuthInterceptor" />
+			<interceptor-stack name="mystack">
+				<interceptor-ref name="exception" />
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="auth" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="mystack" />
+	</package>
+
+</struts>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+       	#parse("#control()/head.vm")
+       	<script>var preventSubmit = false;var root="$!{request.getContextPath()}";</script>
+    </head>
+    <body>
+    	#parse("#layout()/header.vm")
+    	
+       	$screen_content
+        
+        #parse("#layout()/footer.vm")
+    </body>
+</html>

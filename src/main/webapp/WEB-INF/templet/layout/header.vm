@@ -1,0 +1,187 @@
+<header class="navbar navbar-inverse navbar-static-top topnav animated" id="topnav">
+	<div class="container">
+		<div class="navbar-header">
+			<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
+			<a href="#ctx()/page/dfcar/businessMarket.htm" class="navbar-brand logo-link">北辰监控分析平台</a>
+		</div>
+		
+		#set($requestURI=$request.getRequestURI())
+		#set($top1=($requestURI.indexOf("#ctx()/page/demo/")>-1))
+		#set($top2=($requestURI.indexOf("#ctx()/page/app/")>-1))
+		<nav class="navbar-collapse collapse" role="navigation">
+			<ul class="nav navbar-nav">
+				<!-- 一级导航 1 -->
+				<li class="top-nav-item #if($top1) selected #end">
+					<a href="#ctx()/page/dfcar/businessMarket.htm">核心业务大盘</a>
+					<header class="navbar subnav ng-scope">
+						<div class="container-fluid">
+							<nav class="nav-collapse">
+								<ul class="nav navbar-nav">							
+									#set($top1_second1=($requestURI.indexOf("#ctx()/page/demo/test2/")>-1))
+									<li class="three_li">
+										<a class="#if($top1_second1)active#end">DFCAR<span class="glyphicon glyphicon-chevron-down" style="font-size:10px"></span></a>
+										<div class="three_div">
+											<i class="arrow-up"></i>
+											<div class="three-item">
+												<div class="three-item-info clearfix">
+													<a href="#ctx()/page/dfcar/businessMarket.htm">DFCAR核心业务大盘</a>
+												</div>
+											</div>
+										</div>
+									</li>
+									
+									#set($top1_second2=($requestURI.indexOf("#ctx()/page/demo/test2/")>-1))
+									<li class="three_li">
+										<a class="#if($top1_second2)active#end">DB<span class="glyphicon glyphicon-chevron-down" style="font-size:10px"></span></a>
+										<div class="three_div">
+											<i class="arrow-up"></i>
+											<div class="three-item">
+												<div class="three-item-info clearfix">
+													<a href="#ctx()/page/db/dbBusiness.htm">DB核心业务大盘</a>
+													<a href="#ctx()/page/db/redisAppSms.htm">REDIS-APP-SMS业务大盘</a>
+												</div>
+											</div>
+										</div>
+									</li>
+									
+									#set($top1_second3=($requestURI.indexOf("#ctx()/page/demo/test2/")>-1))
+									<li class="three_li">
+										<a class="#if($top1_second3)active#end">API<span class="glyphicon glyphicon-chevron-down" style="font-size:10px"></span></a>
+										<div class="three_div">
+											<i class="arrow-up"></i>
+											<div class="three-item">
+												<div class="three-item-info clearfix">
+													<a href="#ctx()/page/api/apiBusiness.htm">API核心业务大盘</a>
+												</div>
+											</div>
+										</div>
+									</li>
+									
+									#set($top1_second4=($requestURI.indexOf("#ctx()/page/demo/test2/")>-1))
+									<li class="three_li">
+										<a class="#if($top1_second4)active#end">PUB<span class="glyphicon glyphicon-chevron-down" style="font-size:10px"></span></a>
+										<div class="three_div">
+											<i class="arrow-up"></i>
+											<div class="three-item">
+												<div class="three-item-info clearfix">
+													<a href="#ctx()/page/app/appError.htm">各模块错误统计</a>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</header>
+				</li>
+
+				<!-- 一级导航 2 -->
+				<li class="top-nav-item #if($top2) selected #end">
+					<a href="#ctx()/page/app/applist.htm">应用监控</a>
+					<header class="navbar subnav ng-scope">
+						<div class="container-fluid">
+							<nav class="nav-collapse">
+								<ul class="nav navbar-nav">
+									#set($top2_second1=($requestURI.indexOf("#ctx()/page/app/")>-1)&&($requestURI.indexOf("app=api-callback")>-1))
+									<li class="three_li">
+										<a href="#ctx()/page/app/appprofile.htm?domain=kuaidi&app=api-callback" class="#if($top2_second1)active#end">API-Callback应用</a>
+									</li>
+								</ul>						
+								<ul class="nav navbar-nav">
+									#set($top2_second2=($requestURI.indexOf("#ctx()/page/app/")>-1)&&($requestURI.indexOf("app=api-general")>-1))
+									<li class="three_li">
+										<a href="#ctx()/page/app/appprofile.htm?domain=kuaidi&app=api-general" class="#if($top2_second2)active#end">API-General应用</a>
+									</li>
+								</ul>
+								<ul class="nav navbar-nav">
+									#set($top2_second3=($requestURI.indexOf("#ctx()/page/app/")>-1)&&($requestURI.indexOf("app=api-kdvip")>-1))
+									<li class="three_li">
+										<a href="#ctx()/page/app/appprofile.htm?domain=kuaidi&app=api-kdvip" class="#if($top2_second3)active#end">API-KdVip应用</a>
+									</li>
+								</ul>
+								<ul class="nav navbar-nav">
+									#set($top2_second4=($requestURI.indexOf("#ctx()/page/app/")>-1)&&($requestURI.indexOf("app=api-customer")>-1))
+									<li class="three_li">
+										<a href="#ctx()/page/app/appprofile.htm?domain=kuaidi&app=api-customer" class="#if($top2_second4)active#end">API-Customer应用</a>
+									</li>
+								</ul>
+								<ul class="nav navbar-nav">
+									#set($top2_second5=($requestURI.indexOf("#ctx()/page/app/")>-1)&&($requestURI.indexOf("app=api-vipdrvier")>-1))
+									<li class="three_li">
+										<a href="#ctx()/page/app/appprofile.htm?domain=kuaidi&app=api-vipdrvier" class="#if($top2_second5)active#end">API-VipDriver应用</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</header>
+				</li>
+				
+				<!-- 一级导航 3 -->
+				<li class="top-nav-item #if($top2) selected #end">
+					<a href="http://121.40.76.169/personal/acm?page=detail&app=api-callback">XFLUSH平台</a>
+				</li>
+
+				 #if($rootFlag)
+				<!-- 一级导航 4 -->
+				<li class="top-nav-item #if($top2) selected #end">
+					<a href="$!{request.getContextPath()}/user/index.htm">用户管理 </a>
+				</li>
+				#end
+			</ul>
+			
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="$!{request.getContextPath()}/home/logout.htm"><span class="glyphicon glyphicon-off"></span>退出</a></li>
+			</ul>
+			<!-- 用户名，先注释掉 -->
+			<!--
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="glyphicon glyphicon-question-sign"></span></a></li>
+				<li class="dropdown user">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<img alt="" src="http://work.alibaba-inc.com/photo/$!{staffNum}.20x20.jpg" style="height:20px;width:20px;" id="peoplePhoto">
+							<span class="username ng-binding" data-id="">
+								$!{userName}
+							</span>
+							<i class="icon-angle-down"></i>
+					</a>
+				</li>
+			</ul>
+			-->
+		</nav>
+	</div>
+</header>
+
+
+<!-- 系统管理 END -->
+<script>
+	var contextPath = "#ctx()";
+	$(function(){
+		
+		$(".three_li").hover(function(){
+			$(this).find('.three_div').stop().slideDown(150);
+		},function(){
+			$(this).find('.three_div').stop().slideUp(150);
+		})
+		
+	})
+
+	$(function() {
+		var elem = document.getElementById('topnav');
+		var headroom = new Headroom(elem, {
+		  "tolerance": 2,
+		  "offset": 80,
+		  "classes": {
+		    "initial": "animated",
+		    "pinned": "fadeIn",
+    		"unpinned": "fadeOut"
+		  }
+		});
+		headroom.init();
+	});
+
+</script>

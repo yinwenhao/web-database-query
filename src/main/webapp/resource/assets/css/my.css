@@ -1,0 +1,4 @@
+.pre-scrollable-my {
+  max-height: 730px;
+  overflow-y: scroll;
+}
